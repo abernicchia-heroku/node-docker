@@ -1,3 +1,27 @@
 {
-  "stack": "container"
+  "env": {
+    "MY_SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "value": "secret"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "5"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 2,
+      "size": "Private-S"
+    },
+    "worker": {
+      "quantity": 2,
+      "size": "Private-S"
+    }    
+  },
+  "addons": [
+    {
+      "plan": "heroku-redis"
+    }
+  ]
 }
