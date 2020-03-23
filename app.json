@@ -23,5 +23,6 @@
     {
       "plan": "heroku-redis"
     }
-  ]
+  ],
+  "stack": "container"
 }
