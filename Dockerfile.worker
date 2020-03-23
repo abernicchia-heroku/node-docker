@@ -1,0 +1,15 @@
+# Inherit from Heroku's stack
+FROM heroku/heroku:18
+
+# Install node
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y nodejs
+
+# Add files
+ADD . /app/
+
+WORKDIR /app
+
+RUN npm install
+
+CMD node worker.js

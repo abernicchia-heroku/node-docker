@@ -1,0 +1,20 @@
+setup:
+    addons:
+    - plan: heroku-redis
+    
+    config:
+    S3_BUCKET: my-example-bucket
+
+build:
+    docker:
+        web: Dockerfile.web
+        worker: Dockerfile.worker
+
+release:
+    command:
+    - ./deployment-tasks.sh
+    image: worker
+
+run:
+    web: node server.js.notexist
+    worker: node worker.js.notexist

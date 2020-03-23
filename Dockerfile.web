@@ -1,0 +1,18 @@
+# Inherit from Heroku's stack
+FROM heroku/heroku:18
+
+# Install node
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y nodejs
+
+# Add files
+ADD . /app/
+
+WORKDIR /app
+
+RUN npm install
+
+# Ignored by Heroku, here only as reminder of the Web server port used in a local environment where $PORT is not defined and then is defaulted to 5000 
+EXPOSE 5000
+
+CMD node server.js
