@@ -21,8 +21,21 @@
   },
   "addons": [
     {
-      "plan": "heroku-redis"
+      "plan": "heroku-redis:premium-1"
     }
   ],
-  "stack": "container"
+  "stack": "container",
+  "environments": {
+    "review": {
+      "addons": ["heroku-redis:premium-0"],
+      "MY_SECRET_TOKEN": {
+        "description": "A secret key for verifying the integrity of signed cookies.",
+        "value": "another_secret"
+      },
+      "WEB_CONCURRENCY": {
+        "description": "The number of processes to run.",
+        "value": "12"
+      }
+    }
+  }
 }
