@@ -16,5 +16,5 @@ build:
 #    image: worker
 
 run:
-    web: node server.js.notexist
-    worker: node worker.js.notexist
+    web: node server.js
+    worker: node worker.js
